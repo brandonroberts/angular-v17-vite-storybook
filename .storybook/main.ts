@@ -1,6 +1,4 @@
-import type { StorybookConfig } from "@storybook/angular";
-
-const config: StorybookConfig = {
+const config = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
     "@storybook/addon-links",
@@ -11,6 +9,14 @@ const config: StorybookConfig = {
     name: "@storybook/angular",
     options: {},
   },
+  "core": {
+    "builder": {
+      "name": "@storybook/builder-vite",
+      "options": {
+        viteConfigPath: "vite.storybook.config.ts"
+      }
+    }
+  },  
   docs: {
     autodocs: "tag",
   },
