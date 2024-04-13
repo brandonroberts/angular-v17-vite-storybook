@@ -1,6 +1,6 @@
 /// <reference types="vitest" />
 
-import { defineConfig } from 'vite';
+import { defineConfig, ViteDevServer } from 'vite';
 import angular from '@analogjs/vite-plugin-angular';
 
 // https://vitejs.dev/config/
@@ -13,6 +13,14 @@ export default defineConfig(({ mode }) => ({
     mainFields: ['module'],
   },
   plugins: [
+    {
+      name: 'watcher',
+      configureServer({ watcher, ws }: ViteDevServer) {
+        watcher.on('change', (path: string) => {
+          ws.send({ type: 'full-reload', path })
+        })
+      }
+    },
     angular({ jit: true, tsconfig: './.storybook/tsconfig.json' }),
     {
       name: '@storybook/angular',
