@@ -7,8 +7,10 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "storybook": "storybook dev",
-    "build-storybook": "storybook build"
+    "storybook": "npm run compodoc:build && npm run storybook:dev",
+    "compodoc:build": "compodoc -p ./.storybook/tsconfig.doc.json -e json -d ./",
+    "storybook:dev": "storybook dev",
+    "storybook:build": "storybook build"
   },
   "private": true,
   "dependencies": {
@@ -29,6 +31,7 @@
     "@angular-devkit/build-angular": "^17.2.2",
     "@angular/cli": "^17.2.2",
     "@angular/compiler-cli": "^17.2.0",
+    "@compodoc/compodoc": "^1.1.23",
     "@storybook/addon-essentials": "^7.6.17",
     "@storybook/addon-interactions": "^7.6.17",
     "@storybook/addon-links": "^7.6.17",
