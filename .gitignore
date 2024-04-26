@@ -44,3 +44,4 @@ Thumbs.db
 # Vite
 /vite
 /.nx/cache
+/storybook-static
