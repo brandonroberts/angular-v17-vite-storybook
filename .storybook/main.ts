@@ -22,20 +22,25 @@ const config = {
     const { mergeConfig } = await import('vite');
     const { default: angular } = await import('@analogjs/vite-plugin-angular');
 
+    /**
+     * Replace imports of "@storybook/angular" with "@storybook/angular/dist/client"
+     */
+    const storybookAngularImportPlugin = () => ({
+      name: '@storybook/angular',
+      transform(code: string) {
+        if (code.includes('"@storybook/angular"')) {
+          return code.replace(/\"@storybook\/angular\"/g, '\"@storybook/angular/dist/client\"');
+        }
+
+        return;
+      }
+    });
+
     return mergeConfig(config, {
       // Add dependencies to pre-optimization
       plugins: [
-        angular.default({ jit: true, tsconfig: './.storybook/tsconfig.json' }),
-        {
-          name: '@storybook/angular',
-          transform(code) {
-            if (code.includes('"@storybook/angular"')) {
-              return code.replace(/\"@storybook\/angular\"/g, '\"@storybook/angular/dist/client\"');
-            }
-
-            return;
-          }
-        }
+        angular({ jit: true, tsconfig: './.storybook/tsconfig.json' }),
+        storybookAngularImportPlugin()
       ]
     });
   },
@@ -43,4 +48,5 @@ const config = {
     autodocs: "tag",
   },
 };
+
 export default config;
