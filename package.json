@@ -10,7 +10,7 @@
     "storybook": "npm run compodoc:build && npm run storybook:dev",
     "compodoc:build": "compodoc -p ./.storybook/tsconfig.doc.json -e json -d ./",
     "storybook:dev": "storybook dev",
-    "storybook:build": "storybook build"
+    "build-storybook": "storybook build"
   },
   "private": true,
   "dependencies": {
