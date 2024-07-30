@@ -60,6 +60,16 @@ const config = {
 
     return mergeConfig(config, {
       // Add dependencies to pre-optimization
+      optimizeDeps: {
+        include: [
+          '@storybook/angular',
+          '@angular/compiler',
+          '@storybook/addon-docs/angular',
+          'react/jsx-dev-runtime',
+          '@storybook/blocks',
+          'tslib'
+        ]
+      },
       plugins: [
         angular({ jit: true, tsconfig: './.storybook/tsconfig.json' }),
         storybookAngularImportPlugin()
