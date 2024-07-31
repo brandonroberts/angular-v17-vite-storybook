@@ -1,3 +1,5 @@
+import { UserConfig } from 'vite';
+
 const config = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
@@ -17,7 +19,7 @@ const config = {
       }
     }
   },
-  async viteFinal(config) {
+  async viteFinal(config: UserConfig) {
     // Merge custom configuration into the default config
     const { mergeConfig } = await import('vite');
     const { default: angular } = await import('@analogjs/vite-plugin-angular');
@@ -28,7 +30,7 @@ const config = {
     const storybookAngularImportPlugin = () => ({
       name: '@storybook/angular',
       config() {
-        return {
+        return <UserConfig>{
           build: {
             minify: false,
             rollupOptions: {
@@ -37,7 +39,6 @@ const config = {
                   name: 'disable-compiler-treeshake',
                   transform(_code: string, id: string) {
                     if (id.includes('compiler')) {
-                      console.log('compiler.mjs', id);
                       return { moduleSideEffects: 'no-treeshake' };
                     }
 
