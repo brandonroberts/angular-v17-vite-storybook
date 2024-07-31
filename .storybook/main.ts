@@ -76,7 +76,9 @@ const config = {
       ]
     });
   },
-  docs: {},
+  docs: {
+    autodocs: "tag",
+  },
 };
 
 export default config;
