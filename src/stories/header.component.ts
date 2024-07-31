@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgIf } from '@angular/common';
 
 import { ButtonComponent } from './button.component';
 import type { User } from './user';
@@ -7,7 +7,7 @@ import type { User } from './user';
 @Component({
   selector: 'storybook-header',
   standalone: true,
-  imports: [CommonModule, ButtonComponent],
+  imports: [NgIf, ButtonComponent],
   template: `<header>
     <div class="storybook-header">
       <div>

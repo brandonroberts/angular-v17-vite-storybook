@@ -1,10 +1,10 @@
-import { CommonModule } from '@angular/common';
+import { NgClass, NgStyle } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'storybook-button',
   standalone: true,
-  imports: [CommonModule],
+  imports: [NgClass, NgStyle],
   template: ` <button
     type="button"
     (click)="onClick.emit($event)"
