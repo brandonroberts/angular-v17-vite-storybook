@@ -27,10 +27,11 @@
     "zone.js": "~0.14.3"
   },
   "devDependencies": {
-    "@analogjs/vite-plugin-angular": "^1.2.2",
+    "@analogjs/vite-plugin-angular": "^1.7.3-beta.5",
     "@angular-devkit/build-angular": "^17.2.2",
     "@angular/cli": "^17.2.2",
     "@angular/compiler-cli": "^17.2.0",
+    "@ngtools/webpack": "^17.2.0",
     "@compodoc/compodoc": "^1.1.23",
     "@storybook/addon-essentials": "~8.1.0",
     "@storybook/addon-interactions": "~8.1.0",
