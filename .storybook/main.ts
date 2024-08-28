@@ -29,27 +29,6 @@ const config = {
      */
     const storybookAngularImportPlugin = () => ({
       name: '@storybook/angular',
-      config() {
-        return <UserConfig>{
-          build: {
-            minify: false,
-            rollupOptions: {
-              plugins: [
-                {
-                  name: 'disable-compiler-treeshake',
-                  transform(_code: string, id: string) {
-                    if (id.includes('compiler')) {
-                      return { moduleSideEffects: 'no-treeshake' };
-                    }
-
-                    return;
-                  }
-                }
-              ]
-            }
-          },
-        }
-      },      
       transform(code: string) {
         if (code.includes('"@storybook/angular"')) {
           return code.replace(/\"@storybook\/angular\"/g, '\"@storybook/angular/dist/client\"');
