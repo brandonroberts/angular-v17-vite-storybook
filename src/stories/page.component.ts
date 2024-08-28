@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import { HeaderComponent } from './header.component';
 import type { User } from './user';
@@ -6,7 +7,7 @@ import type { User } from './user';
 @Component({
   selector: 'storybook-page',
   standalone: true,
-  imports: [HeaderComponent],
+  imports: [CommonModule, HeaderComponent],
   template: `<article>
     <storybook-header
       [user]="user"
