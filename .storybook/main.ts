@@ -33,12 +33,16 @@ const config = {
           '@storybook/addon-docs/angular',
           'react/jsx-dev-runtime',
           '@storybook/blocks',
-          'tslib'
-        ]
+          'tslib',
+        ],
       },
       plugins: [
-        angular({ jit: true, tsconfig: './.storybook/tsconfig.json' })
-      ]
+        angular({
+          disableTypeChecking: true,
+          jit: true,
+          tsconfig: './.storybook/tsconfig.json',
+        }),
+      ],
     });
   },
   docs: {

@@ -15,6 +15,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "string",
+                    "indexKey": "",
                     "optional": false,
                     "description": "",
                     "line": 2
@@ -58,6 +59,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "string",
+                    "indexKey": "",
                     "optional": false,
                     "description": "",
                     "line": 12
@@ -123,17 +125,18 @@
                         {
                             "pos": 798,
                             "end": 811,
+                            "kind": 327,
+                            "id": 0,
                             "flags": 16842752,
                             "modifierFlagsCache": 0,
                             "transformFlags": 0,
-                            "kind": 334,
                             "tagName": {
                                 "pos": 799,
                                 "end": 807,
-                                "flags": 16842752,
-                                "modifierFlagsCache": 0,
-                                "transformFlags": 0,
                                 "kind": 80,
+                                "id": 0,
+                                "flags": 16842752,
+                                "transformFlags": 0,
                                 "escapedText": "required"
                             },
                             "comment": ""
@@ -331,6 +334,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "User | null",
+                    "indexKey": "",
                     "optional": false,
                     "description": "",
                     "line": 69
