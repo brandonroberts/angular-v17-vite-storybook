@@ -24,6 +24,15 @@ const config = {
     const { mergeConfig } = await import('vite');
     const { default: angular } = await import('@analogjs/vite-plugin-angular');
 
+    const angularPlugin = angular({
+      disableTypeChecking: true,
+      
+      jit: false,
+      tsconfig: './.storybook/tsconfig.json',
+    });
+
+    
+
     return mergeConfig(config, {
       // Add dependencies to pre-optimization
       optimizeDeps: {
@@ -39,7 +48,8 @@ const config = {
       plugins: [
         angular({
           disableTypeChecking: true,
-          jit: true,
+          jit: false,
+          liveReload: true,
           tsconfig: './.storybook/tsconfig.json',
         }),
       ],
