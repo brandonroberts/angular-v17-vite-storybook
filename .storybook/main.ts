@@ -39,13 +39,9 @@ const config = {
         ],
       },
       plugins: [
-        angular(isDevMode ? {
-          jit: false,
-          liveReload: true,
-          tsconfig: './.storybook/tsconfig.json',
-        } : {
-          jit: true,
-          liveReload: false,
+        angular({
+          jit: !isDevMode,
+          liveReload: isDevMode,
           tsconfig: './.storybook/tsconfig.json',
         }),
       ],
