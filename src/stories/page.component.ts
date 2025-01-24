@@ -6,7 +6,6 @@ import type { User } from './user';
 
 @Component({
   selector: 'storybook-page',
-  standalone: true,
   imports: [CommonModule, HeaderComponent],
   template: `<article>
     <storybook-header

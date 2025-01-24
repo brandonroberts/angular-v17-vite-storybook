@@ -1,5 +1,7 @@
 import { UserConfig } from 'vite';
 
+const isDevMode = process.env.NODE_ENV === 'development';
+
 const config = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
@@ -33,12 +35,16 @@ const config = {
           '@storybook/addon-docs/angular',
           'react/jsx-dev-runtime',
           '@storybook/blocks',
-          'tslib'
-        ]
+          'tslib',
+        ],
       },
       plugins: [
-        angular({ jit: true, tsconfig: './.storybook/tsconfig.json' })
-      ]
+        angular({
+          jit: !isDevMode,
+          liveReload: isDevMode,
+          tsconfig: './.storybook/tsconfig.json',
+        }),
+      ],
     });
   },
   docs: {
