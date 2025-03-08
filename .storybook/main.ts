@@ -7,7 +7,8 @@ const config = {
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-interactions"
+    "@storybook/addon-interactions",
+    "@storybook/addon-mdx-gfm"
   ],
   framework: {
     name: "@storybook/angular",
@@ -45,6 +46,9 @@ const config = {
           tsconfig: './.storybook/tsconfig.json',
         }),
       ],
+      define: {
+        STORYBOOK_ANGULAR_OPTIONS: JSON.stringify({ experimentalZoneless: false })
+      }
     });
   },
   docs: {

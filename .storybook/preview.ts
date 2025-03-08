@@ -1,4 +1,5 @@
-import { applicationConfig, type Preview } from '@storybook/angular/dist/client';
+import 'zone.js';
+import { applicationConfig, type Preview } from '@storybook/angular';
 import { setCompodocJson } from '@storybook/addon-docs/angular';
 import { provideNoopAnimations } from '@angular/platform-browser/animations';
 import docJson from '../documentation.json';
